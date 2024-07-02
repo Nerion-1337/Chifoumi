@@ -1,0 +1,249 @@
+//
+//
+//
+.type-btn1{
+    position: relative;
+    width: clamp(90px, calc((200 / $width) * 100vw), 200px);
+    height: clamp(25px, calc((50 / $width) * 100vw), 50px);
+    background: var(--cw, $cw);
+    @extend %center;
+    border-radius: clamp(7.5px, calc((15 / $width) * 100vw), 15px);
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    z-index: 1;
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--cb, $cb);
+        transform: scaleX(0);
+        transition: transform 0.5s ease-in-out;
+        transform-origin: right;
+        z-index: -1;
+    }
+    &:hover{
+      color: var(--cw, $cw);  
+    &::after{
+        transform: scaleX(1);
+        transform-origin: left;        
+    }
+    }
+}
+.type-btn1 input{
+    width: clamp(90px, calc((200 / $width) * 100vw), 200px);
+    height: clamp(25px, calc((50 / $width) * 100vw), 50px);
+    background: var(--cw, $cw)transparent;
+    @extend %center;
+    color: var(--cb, $cb);
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    z-index: 2;
+    transition: 0.5s ease-in-out;
+}
+.type-btn1:hover input{
+    color: $cb;
+    letter-spacing: clamp(1.5px, calc((3 / $width) * 100vw), 3px);
+}
+//
+//
+// SIZE
+//
+//
+$size-btn0: clamp(5px, calc((10 / $width) * 100vw), 10px);
+$size-btn1: clamp(10px, calc((20 / $width) * 100vw), 20px);
+$size-btn2: clamp(10px, calc((30 / $width) * 100vw), 30px);
+$size-btn3: clamp(23px, calc((45 / $width) * 100vw), 45px);
+$size-btn4: clamp(10px, calc((50 / $width) * 100vw), 50px);
+$size-btn5: clamp(10px, calc((60 / $width) * 100vw), 60px);
+.size-btn0{
+    width: $size-btn0;
+    height: $size-btn0;
+    &::before{
+        width: $size-btn0;
+        height: $size-btn0;
+    }
+    &::after{
+        width: $size-btn0;
+        height: $size-btn0;
+    }
+}
+.size-btn1{
+    width: $size-btn1;
+    height: $size-btn1;
+    &::before{
+        width: $size-btn1;
+        height: $size-btn1;
+    }
+    &::after{
+        width: $size-btn1;
+        height: $size-btn1;
+    }
+}
+.size-btn2{
+    width: $size-btn2;
+    height: $size-btn2;
+    &::before{
+        width: $size-btn2;
+        height: $size-btn2;
+    }
+    &::after{
+        width: $size-btn2;
+        height: $size-btn2;
+    }
+}
+.size-btn3{
+    width: $size-btn3;
+    height: $size-btn3;
+    &::before{
+        width: $size-btn3;
+        height: $size-btn3;
+    }
+    &::after{
+        width: $size-btn3;
+        height: $size-btn3;
+    }
+}
+.size-btn4{
+    width: $size-btn4;
+    height: $size-btn4;
+    &::before{
+        width: $size-btn4;
+        height: $size-btn4;
+    }
+    &::after{
+        width: $size-btn4;
+        height: $size-btn4;
+    }
+}
+.size-btn5{
+    width: $size-btn5;
+    height: $size-btn5;
+    &::before{
+        width: $size-btn5;
+        height: $size-btn5;
+    }
+    &::after{
+        width: $size-btn5;
+        height: $size-btn5;
+    }
+}
+//
+//
+// FONT-SIZE
+//
+//
+$sizeBtnMax0: 5;
+$sizeBtnMin0: 0;
+.size-t0{
+    font-size: clamp(calc($sizeBtnMin0 * 1px), calc(($sizeBtnMax0 / $width) * 100vw), calc($sizeBtnMax0 * 1px));
+    line-height: clamp(calc($sizeBtnMin0 * 1px), calc(($sizeBtnMax0 / $width) * 100vw), calc($sizeBtnMax0 * 1px));
+    letter-spacing: clamp(0px, calc((1 / $width) * 100vw), 1px) ;
+    font-weight: 500;
+    font-family: 'Manrope', sans-serif;
+}
+
+$sizeBtnMax1: 18;
+$sizeBtnMin1: 9;
+.size-t1{
+    font-size: clamp(calc($sizeBtnMin1 * 1px), calc(($sizeBtnMax1 / $width) * 100vw), calc($sizeBtnMax1 * 1px));
+    line-height: clamp(calc($sizeBtnMin1 * 1px), calc(($sizeBtnMax1 / $width) * 100vw), calc($sizeBtnMax1 * 1px));
+    letter-spacing: clamp(0px, calc((1 / $width) * 100vw), 1px) ;
+    font-weight: 500;
+    font-family: 'Anton', sans-serif;
+}
+
+$sizeBtnMax2: 20;
+$sizeBtnMin2: 10;
+.size-t2{
+    font-size: clamp(calc($sizeBtnMin2 * 1px), calc(($sizeBtnMax2 / $width) * 100vw), calc($sizeBtnMax2 * 1px));
+    line-height: clamp(calc($sizeBtnMin2 * 1px), calc(($sizeBtnMax2 / $width) * 100vw), calc($sizeBtnMax2 * 1px));
+    letter-spacing: clamp(1px, calc((1 / $width) * 100vw), 1px) ;
+    font-weight: 500;
+    font-family: 'Anton', sans-serif;
+}
+
+$sizeBtnMax3: 25;
+$sizeBtnMin3: 17.5;
+.size-t3{
+    font-size: clamp(calc($sizeBtnMin3 * 1px), calc(($sizeBtnMax3 / $width) * 100vw), calc($sizeBtnMax3 * 1px));
+    line-height: clamp(calc($sizeBtnMin3 * 1px), calc(($sizeBtnMax3 / $width) * 100vw), calc($sizeBtnMax3 * 1px));
+    letter-spacing: clamp(1px, calc((2 / $width) * 100vw), 2px) ;
+    font-weight: 500;
+    font-family: 'Anton', sans-serif;
+}
+
+$sizeBtnMax4: 30;
+$sizeBtnMin4: 15;
+.size-t4{
+    font-size: clamp(calc($sizeBtnMin4 * 1px), calc(($sizeBtnMax4 / $width) * 100vw), calc($sizeBtnMax4 * 1px));
+    line-height: clamp(calc($sizeBtnMin4 * 1px), calc(($sizeBtnMax4 / $width) * 100vw), calc($sizeBtnMax4 * 1px));
+    letter-spacing: clamp(0px, calc((1 / $width) * 100vw), 1px) ;
+    font-weight: 500;
+    font-family: 'Manrope', sans-serif;
+}
+
+$sizeBtnMax5: 35;
+$sizeBtnMin5: 17.5;
+.size-t5{
+    font-size: clamp(calc($sizeBtnMin5 * 1px), calc(($sizeBtnMax5 / $width) * 100vw), calc($sizeBtnMax5 * 1px));
+    line-height: clamp(calc($sizeBtnMin5 * 1px), calc(($sizeBtnMax5 / $width) * 100vw), calc($sizeBtnMax5 * 1px));
+    letter-spacing: clamp(0px, calc((1 / $width) * 100vw), 1px) ;
+    font-weight: 500;
+    font-family: 'Manrope', sans-serif;
+}
+
+$sizeBtnMax6: 40;
+$sizeBtnMin6: 20;
+.size-t6{
+    font-size: clamp(calc($sizeBtnMin6 * 1px), calc(($sizeBtnMax6 / $width) * 100vw), calc($sizeBtnMax6 * 1px));
+    line-height: clamp(calc($sizeBtnMin6 * 1px), calc(($sizeBtnMax6 / $width) * 100vw), calc($sizeBtnMax6 * 1px));
+    letter-spacing: clamp(0px, calc((1 / $width) * 100vw), 1px) ;
+    font-weight: 500;
+    font-family: 'Manrope', sans-serif;
+}
+
+$sizeBtnMax7: 30;
+$sizeBtnMin7: 15;
+.size-t7{
+    font-size: clamp(calc($sizeBtnMin7 * 1px), calc(($sizeBtnMax7 / $width) * 100vw), calc($sizeBtnMax7 * 1px));
+    line-height: clamp(calc($sizeBtnMin7 * 1px), calc(($sizeBtnMax7 / $width) * 100vw), calc($sizeBtnMax7 * 1px));
+    letter-spacing: clamp(0px, calc((1 / $width) * 100vw), 1px) ;
+    font-weight: 500;
+    font-family: 'Anton', sans-serif;
+}
+
+$sizeBtnMax8: 34;
+$sizeBtnMin8: 17;
+.size-t8{
+    font-size: clamp(calc($sizeBtnMin8 * 1px), calc(($sizeBtnMax8 / $width) * 100vw), calc($sizeBtnMax8 * 1px));
+    line-height: clamp(calc($sizeBtnMin8 * 1px), calc(($sizeBtnMax8 / $width) * 100vw), calc($sizeBtnMax8 * 1px));
+    letter-spacing: clamp(0px, calc((1 / $width) * 100vw), 1px) ;
+    font-weight: 500;
+    font-family: 'Manrope', sans-serif;
+}
+
+$sizeBtnMax9: 38;
+$sizeBtnMin9: 19;
+.size-t9{
+    font-size: clamp(calc($sizeBtnMin9 * 1px), calc(($sizeBtnMax9 / $width) * 100vw), calc($sizeBtnMax9 * 1px));
+    line-height: clamp(calc($sizeBtnMin9 * 1px), calc(($sizeBtnMax9 / $width) * 100vw), calc($sizeBtnMax9 * 1px));
+    letter-spacing: clamp(0px, calc((1 / $width) * 100vw), 1px) ;
+    font-weight: 500;
+    font-family: 'Manrope', sans-serif;
+}
+
+$sizeBtnMax10: 46;
+$sizeBtnMin10: 23;
+.size-t10{
+    font-size: clamp(calc($sizeBtnMin10 * 1px), calc(($sizeBtnMax10 / $width) * 100vw), calc($sizeBtnMax10 * 1px));
+    line-height: clamp(calc($sizeBtnMin10 * 1px), calc(($sizeBtnMax10 / $width) * 100vw), calc($sizeBtnMax10 * 1px));
+    letter-spacing: clamp(0px, calc((1 / $width) * 100vw), 1px) ;
+    font-weight: 500;
+    font-family: 'Manrope', sans-serif;
+}

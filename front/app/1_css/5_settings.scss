@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html{
+  @extend %center;
+  flex-direction: column;
+  background: var(--C1, $c1);
+  color: var(--C2, $c2);
+  transition: background .5s;
+  overflow: scroll;
+  //pointer-events:none;
+  //user-select:none;  
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  max-width: calc($width * 1px);
+  overflow: scroll;
+}
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:visited {
+  color: auto;
+}
+
+input{
+  outline: none;
+}
+
+button{
+border: none;
+}
+//
+//
+// ERROR
+//
+//
+.error404{
+    height: 100vh;
+    width: 100vw;
+    max-width: calc($width * 1px);
+    @extend %center;
+    flex-direction: column;
+    gap: clamp(5px, calc((60 / $width) * 100vw), 60px);
+    
+}
+
+.error404 .backHomeError404{
+    position: relative;
+}
+
+.error404 .backHomeError404:hover::after{
+    animation: none;
+    width: 102%;
+}
+
+.error404 .backHomeError404::after{
+    content: "Retournez sur la page d’accueil";
+    position: absolute;
+    left: 0;
+    color: var(--cb, $cb);
+    border-right: 2px solid var(--c2, $c2);
+    animation: script 12s steps(45) infinite;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@keyframes script{
+    0%{
+      width: 0;
+    }
+    45%{
+      width: 102%;
+    }
+    
+      55%{
+      width: 102%;
+    }
+    
+    100%{
+      width: 0;
+    }
+  }
+
+.error{
+    height: 100vh;
+    width: 100vw;
+    max-width: calc($width * 1px);
+    @extend %center;
+    flex-direction: column;
+    gap: clamp(5px, calc((60 / $width) * 100vw), 60px);
+    
+}  
