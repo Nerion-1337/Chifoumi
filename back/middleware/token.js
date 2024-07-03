@@ -12,7 +12,7 @@ exports.token_valid = (req, res, next) => {
                 userId: userId
             };
    
-         return res.status(200).json({id: userId})
+         return res.status(200).json({token: "valide"})
         } catch(error) {
             res.status(202).json({ error_token: error });
         }

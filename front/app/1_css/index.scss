@@ -1,0 +1,31 @@
+.home{
+    height: 100vh;
+    width: 100vw;
+    max-width: calc($width * 1px);
+    @extend %center;
+}
+
+.home .title_home{
+    position: absolute;
+    top: clamp(10px, calc((20 / $width) * 100vw), 20px);
+}
+
+.home .register_user{
+@extend %center;
+flex-direction: column;
+gap: clamp(15px, calc((30 / $width) * 100vw), 30px);
+padding: clamp(40px, calc((80 / $width) * 100vw), 80px)
+clamp(60px, calc((120 / $width) * 100vw), 120px);
+border: 8px solid transparent;
+border-radius: clamp(10px, calc((20 / $width) * 100vw), 20px);
+box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.3),
+5px 5px 15px rgba(0, 0, 0, 0.3),
+inset -5px -5px 15px rgba(0, 0, 0, 0.3),
+inset 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.home .register_user form{
+    @extend %center;
+    flex-direction: column;
+    gap: clamp(15px, calc((30 / $width) * 100vw), 30px);
+    }

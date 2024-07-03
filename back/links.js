@@ -1,9 +1,20 @@
 module.exports.Links_Server = [
     {
-        table: "01_utilisateur",
+        table: "users",
         id: "id",
-        user: "pseudo",
+        pseudo: "pseudo",
+        score: "score",
         date_ajout: "date_ajout",
         date_maj: "date_maj",
+    },
+]
+//
+//
+//
+module.exports.Regex =[
+    {
+        id: 0,
+        type: "uniquement chiffre et lettre", 
+        value: /^[a-zA-Z0-9]*$/,
     },
 ]

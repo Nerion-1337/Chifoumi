@@ -97,12 +97,12 @@ $sizeTypoMin9: 19;
     letter-spacing: clamp(0px, calc((1 / $width) * 100vw), 1px) ;
 }
 
-$sizeTypoMax10: 46;
-$sizeTypoMin10: 23;
+$sizeTypoMax10: 50;
+$sizeTypoMin10: 25;
 .size-typo10{
     font-size: clamp(calc($sizeTypoMin10 * 1px), calc(($sizeTypoMax10 / $width) * 100vw), calc($sizeTypoMax10 * 1px));
     line-height: clamp(calc($sizeTypoMin10 * 1px), calc(($sizeTypoMax10 / $width) * 100vw), calc($sizeTypoMax10 * 1px));
-    letter-spacing: clamp(0px, calc((1 / $width) * 100vw), 1px) ;
+    letter-spacing: clamp(0px, calc((5 / $width) * 100vw), 5px) ;
 }
 //
 //

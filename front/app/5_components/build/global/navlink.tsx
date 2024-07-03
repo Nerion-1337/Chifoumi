@@ -1,3 +1,4 @@
+"use client"
 // DATA
 import { Typelinks } from "#3_data/links.tsx";
 // NEXT

@@ -143,7 +143,7 @@ const handleonChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
         fonction(value)
         moveSpan(value);
       } else{
-        fonction(variable, value);
+        fonction(variable, value, identifiant);
       }
     } 
   }

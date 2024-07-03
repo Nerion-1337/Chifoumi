@@ -136,6 +136,7 @@ export interface input extends Partial<variant & size & keys>{
   type: string;
   icon: iconProps;
   text: string;
+  identifiant?: string;
   value?: string | number;
   element?: string;
   unitee?:string;
@@ -161,8 +162,8 @@ export interface modal_links {
 }
 //
 //
-export interface dropdown_data{
-   [key: string]: string;
+export interface typeString{
+  [key: string]: string;
 }
 //
 //
@@ -280,7 +281,7 @@ export interface dropdown_type{
   variant?: string;
   text?: string;
   icon?: iconProps;
-  list?: dropdown_data[];
+  list?: typeString[];
   value?: string | number;
   variable?: string;
   // eslint-disable-next-line @typescript-eslint/ban-types 
@@ -349,3 +350,10 @@ export interface RouterContextProps {
 export interface RouterProviderProps {
     children: ReactNode;
   }  
+//
+export interface ChangeHandle{
+  fieldName: string; 
+  newValue: string;
+  idValue?: string;
+  setFormData: Dispatch<SetStateAction<typeString>>;
+}

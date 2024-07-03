@@ -11,12 +11,11 @@ const path = require("path");
 //GOOGLE
 const passport = require("passport");
 const session = require('express-session');
-require("./controllers/google")
 //
 app.use(express.json());
 app.use(helmet({ crossOriginResourcePolicy: false }));
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: process.env.URL_CLIENT }));
 
 
 const limiter = rateLimit({
