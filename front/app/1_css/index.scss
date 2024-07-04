@@ -1,16 +1,32 @@
+//
+//
+// HEADER
+//
+//
+.header_site{
+    @extend %center;
+    padding: clamp(20px, calc((40 / $width) * 100vw), 40px)
+             0;
+    gap: clamp(15px, calc((30 / $width) * 100vw), 30px);         
+}
+//
+//
+// BODY
+//
+//
 .home{
-    height: 100vh;
+    height: auto;
     width: 100vw;
     max-width: calc($width * 1px);
     @extend %center;
+    margin-top: clamp(15px, calc((30 / $width) * 100vw), 30px);
 }
-
-.home .title_home{
-    position: absolute;
-    top: clamp(10px, calc((20 / $width) * 100vw), 20px);
-}
-
-.home .register_user{
+//
+//
+// ACCUEIL / IDENTIFICATION
+//
+//
+.register_user{
 @extend %center;
 flex-direction: column;
 gap: clamp(15px, calc((30 / $width) * 100vw), 30px);
@@ -24,8 +40,81 @@ inset -5px -5px 15px rgba(0, 0, 0, 0.3),
 inset 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.home .register_user form{
+.register_user form{
     @extend %center;
     flex-direction: column;
     gap: clamp(15px, calc((30 / $width) * 100vw), 30px);
     }
+//
+//
+// BODY GAME CHOOSE + RESULT
+//
+//
+.body_game{
+    @extend %center;
+    flex-direction: column;
+    gap: clamp(30px, calc((60 / $width) * 100vw), 60px);
+}    
+//
+//
+// SCORING
+//
+//
+.header_score{
+    @extend %center;
+    gap: clamp(40px, calc((80 / $width) * 100vw), 80px);
+    border: 8px solid transparent;
+    padding: clamp(10px, calc((20 / $width) * 100vw), 20px)
+             clamp(15px, calc((30 / $width) * 100vw), 30px);
+    border: 8px solid transparent;
+    border-radius: clamp(10px, calc((20 / $width) * 100vw), 20px);
+    box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.3),
+                 5px 5px 15px rgba(0, 0, 0, 0.3),
+                 inset -5px -5px 15px rgba(0, 0, 0, 0.3),
+                 inset 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.header_score .pseudo_rank{
+    @extend %center;
+    flex-direction: column;
+    gap: clamp(15px, calc((20 / $width) * 100vw), 20px);
+}
+
+.header_score .bloc_score{
+    @extend %center;
+    flex-direction: column;
+    gap: clamp(7.5px, calc((15 / $width) * 100vw), 15px);
+    background: $cw;
+    padding: clamp(7.5px, calc((15 / $width) * 100vw), 15px)
+             clamp(7.5px, calc((30 / $width) * 100vw), 30px);
+    border-radius: clamp(10px, calc((20 / $width) * 100vw), 20px);
+}
+//
+//
+// SELECTION GAME
+//
+//
+.game_choose{
+    @extend %center;
+    flex-direction: column;
+    gap: clamp(15px, calc((30 / $width) * 100vw), 30px);
+
+}
+
+.game_choose .img_choose{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: clamp(10px, calc((20 / $width) * 100vw), 20px);
+    grid-row-gap: 0px;
+}
+
+.game_choose .img_choose figure{
+    cursor: pointer;
+}
+
+.game_choose .img_choose .rocks{
+    justify-self: center;
+    grid-area: 2 / 1 / 3 / 3;
+}
+    

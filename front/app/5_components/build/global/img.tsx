@@ -24,6 +24,10 @@ datatext,
 fonction = () => {
   console.log();
 },
+data_function,
+enterMousse,
+data_mousse,
+leavemousse,
 }: img){
  //
  //
@@ -151,7 +155,7 @@ let radiusImgStyle = "";
   //
   //
   const handleClick = () => {
-    if (fonction) fonction();
+    if (fonction) fonction(data_function);
   };
   //
   //
@@ -163,6 +167,8 @@ let radiusImgStyle = "";
         <figure 
         className={clsx(sizeBlocStyle,radiusImgStyle, className)}
         onClick={handleClick}
+        onMouseEnter={()=> enterMousse && enterMousse(data_mousse)}
+        onMouseLeave={() => leavemousse && leavemousse()}
         >
             <img className={clsx(classImg, sizeImgStyle)} src={src} alt={alt}/>
         </figure>

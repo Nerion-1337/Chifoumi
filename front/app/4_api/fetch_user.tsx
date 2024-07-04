@@ -3,10 +3,10 @@ import { setErreur, setValid } from "#5_components/valid_input.tsx";
 // DATA
 import { Route_Server, Links_Server } from "#3_data/links.tsx";
 // TYPAGE
-import { typeString } from "#2_types/typages.tsx";
+import { typeString, openUser } from "#2_types/typages.tsx";
 //
 //
-// USER PLAYER
+// FIRST CONNECT PLAYER
 //
 //
 export function user_player(formData: typeString): Promise<boolean>{
@@ -38,3 +38,33 @@ export function user_player(formData: typeString): Promise<boolean>{
            return false
          });
  }
+//
+//
+// PLAYER LAST CONNECT
+//
+//
+export function user_open({name, score}: openUser): Promise<boolean>{
+  return fetch(`${Route_Server[0].url}${Route_Server[2].url}`, {
+       method: "GET",
+       headers: {
+         "Content-Type": "application/json",
+         authorization: `${localStorage.getItem("token_chifoumi")}`,
+       },
+     })
+       .then((res) => res.json())
+       .then((res) => {          
+         if (res.error_token) {
+           return false
+         } else {
+          name(res.pseudo);
+          score(res.score);
+           return true
+           
+
+         }
+       })
+       .catch((err) => {
+         console.log(err);
+         return false
+       });
+}

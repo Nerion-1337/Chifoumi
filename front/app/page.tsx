@@ -1,17 +1,17 @@
 "use client"
+
 // API
-import { user_player } from "#4_api/fetch_register_user.tsx"
-import { token_valid } from "#4_api/fetch_token.tsx"
+import { user_player, user_open } from "@/app/4_api/fetch_user"
 // BUILD
+import Header from "#5_components/build/header.tsx";
 import Typo from "#5_components/build/global/typography.tsx";
 import Input from "#5_components/build/global/input.tsx";
 import Button from "#5_components/build/global/button.tsx";
+import Img from "#5_components/build/global/img.tsx";
 // COMPONENTS
 import { handleChange } from "#5_components/formData.tsx";
 // DATA
-import { Route_Page, Input_register } from "#3_data/links.tsx";
-// NEXT
-import Image from "next/image";
+import { Route_Page, Input_register, Img_choose } from "#3_data/links.tsx";
 // REACT
 import { useState, useEffect } from "react";
 // TYPE
@@ -32,12 +32,18 @@ const [validToken, setValidToken] = useState<boolean> (false);
 //
 const [formData, setFormData] = useState<typeString>({});
 //
+const [game, setGame] = useState<boolean> (false);
+const [nameChifoumi, setNameChifoumi] = useState<string> ("choisis ta main");
+const [scoring, setScoring] = useState<number>(0);
+const [nameUser, setNameUser] = useState<string>("pseudo");
+const [ranking, setRanking] = useState();
+//
 //
 // REQUETTE
 //
 //
 useEffect(()=>{
-  token_valid()
+  user_open({name: setNameUser, score: setScoring})
   .then((isConfirmer:  boolean) =>{
     setValidToken(isConfirmer)
   })
@@ -55,9 +61,8 @@ const addDataSimply = (fieldName: string, newValue: string, idValue: string,) =>
     idValue: idValue, 
     setFormData: setFormData})
 }
-
-
 //
+// SEND USER BACK-END
 const handleSubmit = () => {
   user_player(formData)
   .then((isConfirmer:  boolean) =>{
@@ -65,8 +70,45 @@ const handleSubmit = () => {
   })
 }
 //
+// ACTIVE MODAL CLASSEMENT
+const rankingSubmit = () => {
+  console.log("test")
+}
+//
+//
+const handleHover = (label: string) => {
+  setNameChifoumi(label);
+};
+//
+const handleMouseLeave = () => {
+  setNameChifoumi("choisis ta main");
+};
+//
+//
+const chooseSubmit = (data: string) =>{
+  console.log(data)
+}
+//
 //
 // BUILDER
+//
+//
+const chifoumi_choose = Img_choose.map((item, index) =>(
+  <Img
+  sizeBloc={item.sizeBloc}
+  sizeImg={item.sizeImg}
+  radius={item.radius}
+  src={item.src}
+  alt={item.alt}
+  fonction={chooseSubmit}
+  data_function={item.data_function}
+  className={item.className}
+  enterMousse={handleHover}
+  data_mousse={item.data_mousse}
+  leavemousse={handleMouseLeave}
+  key={index}
+  />
+))
 //
 //
 const registerUser = (
@@ -102,26 +144,85 @@ const registerUser = (
   </div>
 )
 //
-const chifoumi = (
+const score = (
+  <article className="header_score">
+    <div className="pseudo_rank">
+      <Typo
+    balise="span"
+    size="7"
+    color="cb"
+    familly="f2"
+    transform="maj"
+    children={nameUser}
+    />
+          <Button
+  variant="t1"
+  fontSize="s1"
+  children="Classement"
+  fonction={rankingSubmit}
+  />
+</div>
+  <div className="bloc_score">
+  <Typo
+    balise="span"
+    size="7"
+    color="cb"
+    transform="maj"
+    children="score"
+    />
+        <Typo
+    balise="span"
+    size="10"
+    color="cb"
+    familly="f2"
+    transform="maj"
+    children={scoring}
+    />
+
+  </div>
+
+  </article>
+)
+//
+const choose = (
+  <article className="game_choose">
+      <Typo
+    balise="h1"
+    size="7"
+    color="cb"
+    transform="maj"
+    children={nameChifoumi}
+    />
+  <div className="img_choose">
+{chifoumi_choose}
+  </div>
+  </article>
+)
+//
+const resultat = (
   <>
-  test
+  
   </>
 )
 //
+const chifoumi = (
+  <section className="body_game">
+  {score}
+  {choose}
+  </section>
+)
+//
 const content = (
+  <>
+  <Header
+  data={validToken}
+  fonction={setValidToken}
+  />
   <main className="home">
-    <Typo
-    balise="h1"
-    size="10"
-    color="cb"
-    transform="maj"
-    children="chifoumi"
-    className="title_home"
-    />
-
     {!validToken && registerUser}
     {validToken && chifoumi}
   </main>
+  </>
 )
 //
 //

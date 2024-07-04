@@ -89,8 +89,8 @@ $sizeTypoMin8: 19;
     letter-spacing: clamp(0px, calc((2 / $width) * 100vw), 2px) ;
 }
 
-$sizeTypoMax9: 38;
-$sizeTypoMin9: 19;
+$sizeTypoMax9: 50;
+$sizeTypoMin9: 25;
 .size-typo9{
     font-size: clamp(calc($sizeTypoMin9 * 1px), calc(($sizeTypoMax9 / $width) * 100vw), calc($sizeTypoMax9 * 1px));
     line-height: clamp(calc($sizeTypoMin9 * 1px), calc(($sizeTypoMax9 / $width) * 100vw), calc($sizeTypoMax9 * 1px));

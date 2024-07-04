@@ -6,11 +6,10 @@ const jwt = require("jsonwebtoken");
 const { Links_Server } = require("../links")
 //
 //
-// REGISTER
+// ENTRER USER
 //
 //
-//
- exports.user_player = async (req, res, next) => {
+ exports.enter_user = async (req, res, next) => {
 //
 //
 // VARIABLE
@@ -41,11 +40,11 @@ const values_insert_user = [req.body[Links_Server[0].pseudo].trim()];
 // TOKEN
 //
 //
-    const token = jwt.sign({ id: data_select_user[0].insertId }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
+    const token = jwt.sign({ id: data_select_user[0].id }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
 //
 // RETURN
 //    
-    return res.status(200).json({token: token});
+    return res.status(200).json({token: token, pseudo: data_select_user[0].pseudo, score: data_select_user[0].score});
 }
 //
 //
@@ -59,11 +58,41 @@ const values_insert_user = [req.body[Links_Server[0].pseudo].trim()];
 // TOKEN
 //
 //
-const token = jwt.sign({ id: data_insert_user.id }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
+const token = jwt.sign({ id: data_insert_user.insertId }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
 //
 // RETURN
 //   
-    return res.status(200).json({token: token});
+    return res.status(200).json({token: token, pseudo: req.body[Links_Server[0].pseudo].trim(), score: 0 });
    });
+ });
+};
+//
+//
+// USER CONNECTER
+//
+//
+exports.user_open = async (req, res, next) => {
+//
+//
+// VARIABLE
+//
+//
+const select_user = `SELECT ${Links_Server[0].id}, 
+                            ${Links_Server[0].pseudo},
+                            ${Links_Server[0].score}
+                    FROM ${Links_Server[0].table} 
+                    WHERE ${Links_Server[0].id} = ?`;
+const value_select_user = [req.auth.userId] 
+//
+//
+// VERIFIE UTILISATEUR EXISTANT
+//
+//
+  SQL.query(select_user, [value_select_user], (err, data_select_user)=>{
+    if (err) return res.status(500).json(err);
+//
+// RETURN
+//   
+    return res.status(200).json({pseudo: data_select_user[0].pseudo, score: data_select_user[0].score});
  });
 };

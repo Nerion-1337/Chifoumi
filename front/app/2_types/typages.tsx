@@ -238,6 +238,7 @@ export interface spinner extends Partial<size & variant>{
 //
 //
 export interface img extends Partial<sizeBloc & sizeImg>{
+  key?: number;
   src?: string,
   alt?: string,
   className?: string;
@@ -253,7 +254,10 @@ export interface img extends Partial<sizeBloc & sizeImg>{
   datatext?: string;
  // eslint-disable-next-line @typescript-eslint/ban-types 
   fonction?: Function;
-  
+  data_function?: any;  
+  enterMousse?: Function;
+  data_mousse?: any;
+  leavemousse?: Function;
 }
 //
 //
@@ -317,6 +321,13 @@ export interface tag{
 }
 //
 //
+export interface header {
+  data: boolean;
+// eslint-disable-next-line @typescript-eslint/ban-types 
+  fonction: Function;
+}
+//
+//
 // ERROR PAGE
 //
 //
@@ -335,7 +346,11 @@ export interface err_type {
 // API
 //
 //
-
+export interface openUser{
+// eslint-disable-next-line @typescript-eslint/ban-types 
+  name: Function;
+  score: Function;
+}
 
 //
 //

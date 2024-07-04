@@ -18,7 +18,7 @@ const validationSchemas = {
 // USER PLAYER
 //
 //
- exports.user_player = (req, res, next) => {
+ exports.enter_user = (req, res, next) => {
        try {
         if(!req.body) return res.status(401).json("Aucune donnée");
 

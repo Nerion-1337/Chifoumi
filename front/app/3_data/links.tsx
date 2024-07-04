@@ -1,8 +1,9 @@
 // ICONS
 import { HiMiniUser } from "react-icons/hi2";
 import { GiDualityMask } from "react-icons/gi";
+import { TbArrowBigLeftFilled } from "react-icons/tb"
 // TYPAGE
-import { linksType, route, List_Icon, typeString, input} from "#2_types/typages.tsx";
+import { linksType, route, List_Icon, typeString, input, img} from "#2_types/typages.tsx";
 //
 //
 //
@@ -37,13 +38,13 @@ export const Typelinks: Record<string, linksType> = {
     {
       index: 1,
       label: "user",
-      url: "/users",
+      url: "/users/enter",
       type: "intern",
     },
     {
       index: 2,
       label: "token",
-      url: "/token",
+      url: "/users/open",
       type: "intern",
     },
   ];
@@ -74,6 +75,11 @@ export const List_icon: List_Icon = {
       type: "user",
       icon: { icon: HiMiniUser },
     },
+    { 
+      key: 1,
+      type: "arrow back",
+      icon: {icon: TbArrowBigLeftFilled },
+    },
   ],
 }
 //
@@ -93,5 +99,45 @@ export const Input_register: input[] = [
     value: "",
     element: "text",
     unitee: "",
+  },
+]
+//
+//
+// IMG
+//
+//
+export const Img_choose: img[] = [
+  {
+    key: 0,
+    sizeBloc: "s6",
+    sizeImg: "s6",
+    radius: "r5",
+    src: "./0_assets/paper.png",
+    alt: "button paper",
+    data_function: "paper",
+    data_mousse: "papier",
+    className: "paper",
+  },
+  {
+    key: 1,
+    sizeBloc: "s6",
+    sizeImg: "s6",
+    radius: "r5",
+    src: "./0_assets/scissors.png",
+    alt: "button scissors",
+    data_function: "scissors",
+    data_mousse: "ciseaux",
+    className: "scissors",
+  },
+  {
+    key: 2,
+    sizeBloc: "s6",
+    sizeImg: "s6",
+    radius: "r5",
+    src: "./0_assets/rocks.png",
+    alt: "button rocks",
+    data_function: "rocks",
+    data_mousse: "pierre",
+    className: "rocks",
   },
 ]
