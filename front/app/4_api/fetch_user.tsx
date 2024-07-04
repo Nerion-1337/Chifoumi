@@ -43,7 +43,10 @@ export function user_player(formData: typeString): Promise<boolean>{
 // PLAYER LAST CONNECT
 //
 //
-export function user_open({name, score}: openUser): Promise<boolean>{
+export function user_open({
+  name, 
+  score
+}: openUser): Promise<boolean>{
   return fetch(`${Route_Server[0].url}${Route_Server[2].url}`, {
        method: "GET",
        headers: {

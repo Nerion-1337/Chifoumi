@@ -1,7 +1,8 @@
 "use client"
 
 // API
-import { user_player, user_open } from "@/app/4_api/fetch_user"
+import { user_player, user_open } from "#4_api/fetch_user.tsx"
+import { gameplay } from "#4_api/fetch_game.tsx"
 // BUILD
 import Header from "#5_components/build/header.tsx";
 import Typo from "#5_components/build/global/typography.tsx";
@@ -32,10 +33,16 @@ const [validToken, setValidToken] = useState<boolean> (false);
 //
 const [formData, setFormData] = useState<typeString>({});
 //
-const [game, setGame] = useState<boolean> (false);
-const [nameChifoumi, setNameChifoumi] = useState<string> ("choisis ta main");
 const [scoring, setScoring] = useState<number>(0);
 const [nameUser, setNameUser] = useState<string>("pseudo");
+//
+const [game, setGame] = useState<boolean>(false);
+const [nameChifoumi, setNameChifoumi] = useState<string>();
+//
+const [result_user, setResult_user] = useState<number>(0);
+const [result_server, setResult_server] = useState<number>(0);
+const [winOrLose, setWinOrLose] = useState<string>();
+//
 const [ranking, setRanking] = useState();
 //
 //
@@ -81,12 +88,23 @@ const handleHover = (label: string) => {
 };
 //
 const handleMouseLeave = () => {
-  setNameChifoumi("choisis ta main");
+  setNameChifoumi("");
 };
 //
 //
 const chooseSubmit = (data: string) =>{
-  console.log(data)
+  gameplay({
+    option_user: data,
+    option_ia: setResult_server,
+    resultmatch: setWinOrLose,
+    resultscore: setScoring
+  })
+  setResult_user(data === "paper" ? 0 :
+                 data === "scissors" ? 1 :
+                 data === "rocks" ? 2 : 0
+  )
+  setNameChifoumi("");
+  setGame(true)
 }
 //
 //
@@ -191,7 +209,7 @@ const choose = (
     size="7"
     color="cb"
     transform="maj"
-    children={nameChifoumi}
+    children={nameChifoumi ? nameChifoumi : "choisis ta main"}
     />
   <div className="img_choose">
 {chifoumi_choose}
@@ -200,15 +218,87 @@ const choose = (
 )
 //
 const resultat = (
-  <>
-  
-  </>
+  <article className="result_game">
+    <Typo
+    balise="h1"
+    size="7"
+    color="cb"
+    transform="maj"
+    children={nameChifoumi ? nameChifoumi : "resultat"}
+    />
+<div className="bloc_result_global">
+    < div className="bloc_result_player">
+  <Img
+  sizeBloc={Img_choose[result_user].sizeBloc}
+  sizeImg={Img_choose[result_user].sizeImg}
+  radius={Img_choose[result_user].radius}
+  src={Img_choose[result_user].src}
+  alt={Img_choose[result_user].alt}
+  className={Img_choose[result_user].className}
+  enterMousse={handleHover}
+  data_mousse={Img_choose[result_user].data_mousse}
+  leavemousse={handleMouseLeave}
+  />
+
+<Typo
+    balise="span"
+    size="7"
+    color="cb"
+    familly="f2"
+    transform="maj"
+    children="Ton choix"
+    />
+  </div>
+
+  <Typo
+    balise="span"
+    size="9"
+    color="cb"
+    familly="f2"
+    transform="maj"
+    children={winOrLose === "draw" ? (<>match <br/> nul</>) 
+                                   : (<>you <br/> {winOrLose}</>)}
+    className="title_result"
+    />
+    
+  < div className="bloc_result_player">
+    <Img
+  sizeBloc={Img_choose[result_server].sizeBloc}
+  sizeImg={Img_choose[result_server].sizeImg}
+  radius={Img_choose[result_server].radius}
+  src={Img_choose[result_server].src}
+  alt={Img_choose[result_server].alt}
+  className={Img_choose[result_server].className}
+  enterMousse={handleHover}
+  data_mousse={Img_choose[result_server].data_mousse}
+  leavemousse={handleMouseLeave}
+  />
+
+<Typo
+    balise="span"
+    size="7"
+    color="cb"
+    familly="f2"
+    transform="maj"
+    children="L'IA"
+    />
+  </div>
+</div>
+  <Button
+  variant="t1"
+  fontSize="s1"
+  children="Rejouer"
+  fonction={setGame}
+  data_function={false}
+  />
+  </article>
 )
 //
 const chifoumi = (
   <section className="body_game">
   {score}
-  {choose}
+  {!game && choose}
+  {game && resultat}
   </section>
 )
 //
@@ -217,6 +307,7 @@ const content = (
   <Header
   data={validToken}
   fonction={setValidToken}
+  gamefunction={setGame}
   />
   <main className="home">
     {!validToken && registerUser}

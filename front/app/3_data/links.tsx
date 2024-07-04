@@ -47,6 +47,12 @@ export const Typelinks: Record<string, linksType> = {
       url: "/users/open",
       type: "intern",
     },
+    {
+      index: 3,
+      label: "game",
+      url: "/game/gameplay",
+      type: "intern",
+    },
   ];
 //
 //
@@ -115,7 +121,7 @@ export const Img_choose: img[] = [
     src: "./0_assets/paper.png",
     alt: "button paper",
     data_function: "paper",
-    data_mousse: "papier",
+    data_mousse: "feuille",
     className: "paper",
   },
   {

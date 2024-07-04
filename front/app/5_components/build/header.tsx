@@ -15,6 +15,7 @@ import { header } from "#2_types/typages.tsx";
 export default function Header({
     data,
     fonction,
+    gamefunction,
 }: header){
 //
 //
@@ -24,6 +25,7 @@ export default function Header({
 const back_name = () =>{
 localStorage.removeItem('token_chifoumi');
 fonction(false)
+gamefunction(false)
 }
 //
 //

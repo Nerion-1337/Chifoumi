@@ -68,7 +68,6 @@ export interface typeFamilly {
 }
 //
 export interface mouseHover {
-// eslint-disable-next-line @typescript-eslint/ban-types
 handleMouse: Function;
 data_mouse?: string;
 }
@@ -179,7 +178,7 @@ export interface button extends Partial<keys & size & fontSize & variant>{
   children?: React.ReactNode;
   children_actif?: React.ReactNode;
   active_child?: boolean;
-  // eslint-disable-next-line @typescript-eslint/ban-types
+
   fonction?: Function;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data_function?: any;
@@ -197,7 +196,6 @@ export interface button extends Partial<keys & size & fontSize & variant>{
 export interface typo extends Partial<keys & size & balise & color & transform & sizeWeight & typeFamilly & mouseHover>{
 className?: string;
 children?: React.ReactNode;
-// eslint-disable-next-line @typescript-eslint/ban-types
 fonction?: Function;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 data_function?: any;
@@ -226,7 +224,7 @@ export interface navlink {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   useRef?: React.Ref<any>;
   datatext?: string;
-  // eslint-disable-next-line @typescript-eslint/ban-types
+
   fonction?: Function;
 }
 //
@@ -252,7 +250,7 @@ export interface img extends Partial<sizeBloc & sizeImg>{
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   useRef?: React.Ref<any>
   datatext?: string;
- // eslint-disable-next-line @typescript-eslint/ban-types 
+ 
   fonction?: Function;
   data_function?: any;  
   enterMousse?: Function;
@@ -270,10 +268,8 @@ export interface input_type extends Partial<variant & size>{
   unitee?: string;
   variable: string;
   multiples?: boolean;
-  identifiant?: string;
-// eslint-disable-next-line @typescript-eslint/ban-types 
+  identifiant?: string; 
   fonction?: Function;
-// eslint-disable-next-line @typescript-eslint/ban-types
   search?: Function; 
   data?: string;
   special?: string;
@@ -288,7 +284,7 @@ export interface dropdown_type{
   list?: typeString[];
   value?: string | number;
   variable?: string;
-  // eslint-disable-next-line @typescript-eslint/ban-types 
+ 
   fonction?: Function;
   show?: boolean;
   search?: boolean;
@@ -312,7 +308,7 @@ export interface tag{
   type?: string;
   number?: boolean;
   quantite?: string;
-  // eslint-disable-next-line @typescript-eslint/ban-types 
+ 
   fonction?: Function;
   close?: Function;
   formData?: Function;
@@ -322,9 +318,9 @@ export interface tag{
 //
 //
 export interface header {
-  data: boolean;
-// eslint-disable-next-line @typescript-eslint/ban-types 
+  data: boolean; 
   fonction: Function;
+  gamefunction: Function;
 }
 //
 //
@@ -347,11 +343,18 @@ export interface err_type {
 //
 //
 export interface openUser{
-// eslint-disable-next-line @typescript-eslint/ban-types 
   name: Function;
   score: Function;
 }
+//
+//
+export interface gameplay{
+  option_user: string;
+  option_ia: Function;
+  resultmatch:Function;
+  resultscore:Function;
 
+}
 //
 //
 // COMPONENT
