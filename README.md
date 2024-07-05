@@ -13,8 +13,7 @@ Jeu:  Pierre - Feuille - Ciseaux
 
 # Instruction Execution 
 
-1- Créer une fichier .env dans le dossier back créer et renseignez les paramètres suivant:
-```.env```
+1- Créer une fichier ```.env``` dans le dossier back créer et renseignez les paramètres suivant:
 - TOKEN_SECRET=
 - PORT=
 - URL_CLIENT=
@@ -22,14 +21,14 @@ Jeu:  Pierre - Feuille - Ciseaux
 - USERDATABASE=
 - PASSWORD=
 
-2- Dans le terminal ce rendre sur le back puis executer le fichier createDataBase pour créer la base de donnée SQL:
+2- Dans le terminal ce rendre sur le back puis executer le fichier ```createDataBase``` pour créer la base de donnée SQL:
 - ```cd back```
 - ```node createDataBase.js```
 
-3- Toujours dans la partie back, démarrez le server:
+3- Toujours dans la partie ```back```, démarrez le server:
 - ```yarn start```
 
-4- Passer dans la partie front pour l'executer:
+4- Passer dans la partie ```front``` pour l'executer:
 - ```cd ..```
 - ```cd front```
 - ```yarn dev```
@@ -37,4 +36,4 @@ Jeu:  Pierre - Feuille - Ciseaux
 
 # Maquette
 
-![screenshot du site](./assets/maquette.png)
+![screenshot du site](./0_assets/maquette.png)
