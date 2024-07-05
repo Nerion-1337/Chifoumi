@@ -1,5 +1,8 @@
-require('dotenv').config(); // Charger les variables d'environnement
+require('dotenv').config();
 const mysql = require('mysql2');
+
+// Base utilisateur 10
+const usersData = ["Newton", "Thibaut", "Elon", "Maxime", "Nérion", "Estelle", "Rogue", "Alber", "Satoshi", "Sirena"]
 
 // Configuration de la connexion à MySQL sans spécifier de base de données
 const connection = mysql.createConnection({
@@ -35,6 +38,17 @@ connection.query(createDatabase, (error, results) => {
     connection.query(createUsersTable, (error, results) => {
       if (error) throw error;
       console.log('Table "users" créée !');
+
+
+    // Insertion des données des users
+  const insertusersQuery = 'INSERT INTO users (pseudo, score) VALUES (?, ?)';
+  usersData.map((item) => {
+    const score = Math.floor(Math.random() * 21) - 10;
+    connection.query(insertusersQuery, [item, score ], (error, results) => {
+      if (error) throw error;
+      console.log(`User ${item} inséré !`);
+    });
+  });  
 
       connection.end();
     });

@@ -15,6 +15,6 @@ module.exports.Regex =[
     {
         id: 0,
         type: "uniquement chiffre et lettre", 
-        value: /^[a-zA-Z0-9]*$/,
+        value: /^[a-zA-Z0-9\u00C0-\u00FF]*$/,
     },
 ]

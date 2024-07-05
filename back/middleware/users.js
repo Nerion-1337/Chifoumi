@@ -26,11 +26,16 @@ const validationSchemas = {
         
         if (identifiantError) {
             let message;
-            if(identifiantError.details[0].type === "string.min") message = "Pseudo trop court, 3 caractères minimum."
-            if(identifiantError.details[0].type === "string.max") message = "Pas de caractères spéciaux."
-            if(identifiantError.details[0].type === "string.pattern.base") message = "Pas de caractères spéciaux."
-            if(identifiantError.details[0].type === "any.required" || "string.empty") message = "Entrer un pseudo entre 4 et 30 caractères."
-            
+            if(identifiantError.details[0].type === "string.min"){
+             message = "Pseudo trop court, 3 caractères minimum." 
+            }else if(identifiantError.details[0].type === "string.max"){
+              message = "Pseudo trop long, 3 caractères minimum."
+            } else if(identifiantError.details[0].type === "string.pattern.base"){
+              message = "Pas de caractères spéciaux."
+            } else if(identifiantError.details[0].type === "any.required" || "string.empty"){
+              message = "Entrer un pseudo entre 4 et 30 caractères."
+            } 
+            console.log(identifiantError.details[0].type)
           return res.status(400).json({ error_identifiant: message });
         }
 

@@ -110,6 +110,27 @@ inset 5px 5px 15px rgba(0, 0, 0, 0.3);
 
 .game_choose .img_choose figure{
     cursor: pointer;
+    scale: 0;
+    transition: .5s;
+    animation: scale_button .8s ease-in-out forwards;
+    @for $i from 3 through 1 {
+        &:nth-child(#{$i}) {
+          animation-delay: 0.3s * (3 - $i);
+        }
+      }
+
+      @keyframes scale_button{
+        0%{
+            scale: 0;
+        };
+        100%{
+            scale: 1;
+        }
+    } 
+    
+    &:hover{
+        transform: scale(1.1);
+    }
 }
 
 .game_choose .img_choose .rocks{
@@ -136,6 +157,45 @@ inset 5px 5px 15px rgba(0, 0, 0, 0.3);
     @extend %center;
     flex-direction: column;
     gap: clamp(15px, calc((30 / $width) * 100vw), 30px);
+    transition: .5s;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+
+.result_game .bloc_result_global .bloc_result_player .result_user{
+    transform: translateY(-100px);
+    opacity: 0;
+    animation: scale_result_user 1s ease-in-out forwards;
+ 
+    @keyframes scale_result_user{
+     0%{
+         opacity: 0;
+         transform: translateY(-100px);
+     };
+     100%{
+         opacity: 1;
+         transform: translateY(0px);
+     }
+ } 
+ }
+
+.result_game .bloc_result_global .bloc_result_player .result_ia{
+   transform: translateX(100px);
+   opacity: 0;
+   animation: scale_result_ia 1s ease-in-out forwards;
+
+   @keyframes scale_result_ia{
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    };
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+} 
 }
 
 .result_game .title_result{
@@ -170,6 +230,17 @@ inset 5px 5px 15px rgba(0, 0, 0, 0.3);
                  5px 5px 15px rgba(255, 255, 255, 0.3),
                  inset -5px -5px 15px rgba(255, 255, 255, 0.3),
                  inset 5px 5px 15px rgba(255, 255, 255, 0.3);
+    transform: rotate(180deg) scale(0);
+    animation: scale_result_ia 1s ease-in-out forwards;
+
+    @keyframes scale_result_ia{
+     0%{
+         transform: rotate(180deg) scale(0);
+     };
+     100%{
+         transform: rotate(720deg) scale(1);
+     }
+ }              
 }
 
 .modal_rank .tableau_top10 .back_rank{
