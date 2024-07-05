@@ -1,21 +1,40 @@
 # Chifoumi
 
-Jeu Pierre - Papier - Ciseaux
+Jeu:  Pierre - Feuille - Ciseaux
 
 # Langage solicité
 
 - Sass
 - TypeScript
 - Next
-- Redux
 - Node.js
 - Express
 - MySQL
 
 # Instruction Execution 
 
+1- Créer une fichier .env dans le dossier back créer et renseignez les paramètres suivant:
+```.env```
+- TOKEN_SECRET=
+- PORT=
+- URL_CLIENT=
+- DATABASE=
+- USERDATABASE=
+- PASSWORD=
+
+2- Dans le terminal ce rendre sur le back puis executer le fichier createDataBase pour créer la base de donnée SQL:
+- ```cd back```
+- ```node createDataBase.js```
+
+3- Toujours dans la partie back, démarrez le server:
+- ```yarn start```
+
+4- Passer dans la partie front pour l'executer:
+- ```cd ..```
+- ```cd front```
+- ```yarn dev```
  
 
 # Maquette
 
-[Canevas](https://www.figma.com/file/eIjCNdPVAgHFVdyXtJ9cI9/Untitled?type=design&node-id=0-1&mode=design&t=yVFQxMlNZAkyPM2h-0)
+![screenshot du site](./assets/maquette.png)
