@@ -10,6 +10,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Chifoumi",
   description: "Pierre - Papier - Ciseaux",
+  icons: {
+    icon: '/0_assets/icon-st-b.svg',
+  },
 };
 //
 //
