@@ -268,7 +268,8 @@ const resultat = (
   <Typo
     balise="span"
     size="9"
-    color="cb"
+    color={winOrLose === "draw" ? "c3" 
+        :  winOrLose === "lose" ? "c2" : "c5"}
     familly="f2"
     transform="maj"
     children={winOrLose === "draw" ? (<>match <br/> nul</>) 

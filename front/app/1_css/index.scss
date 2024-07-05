@@ -200,6 +200,17 @@ inset 5px 5px 15px rgba(0, 0, 0, 0.3);
 
 .result_game .title_result{
     text-align: center;
+    transform: scale(0);
+    animation: anime_title_result 1s ease-in-out forwards;
+
+    @keyframes anime_title_result{
+     0%{
+         transform: scale(0);
+     };
+     100%{
+         transform: scale(1);
+     }
+ }   
 }
 //
 //
@@ -231,9 +242,9 @@ inset 5px 5px 15px rgba(0, 0, 0, 0.3);
                  inset -5px -5px 15px rgba(255, 255, 255, 0.3),
                  inset 5px 5px 15px rgba(255, 255, 255, 0.3);
     transform: rotate(180deg) scale(0);
-    animation: scale_result_ia 1s ease-in-out forwards;
+    animation: anime_rank 1s ease-in-out forwards;
 
-    @keyframes scale_result_ia{
+    @keyframes anime_rank{
      0%{
          transform: rotate(180deg) scale(0);
      };
