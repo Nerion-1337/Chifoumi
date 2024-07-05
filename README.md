@@ -36,4 +36,4 @@ Jeu:  Pierre - Feuille - Ciseaux
 
 # Maquette
 
-![screenshot du site](./0_assets/maquette.png)
+![screenshot du site](./front/public/0_assets/maquette.png)
