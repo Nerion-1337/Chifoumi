@@ -1,5 +1,5 @@
 // DATA
-import { Route_Server, Links_Server } from "#3_data/links.tsx";
+import { Route_Server } from "#3_data/links.tsx";
 // TYPAGE
 import { gameplay } from "#2_types/typages.tsx";
 //

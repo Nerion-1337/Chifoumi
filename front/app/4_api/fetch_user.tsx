@@ -3,13 +3,17 @@ import { setErreur, setValid } from "#5_components/valid_input.tsx";
 // DATA
 import { Route_Server, Links_Server } from "#3_data/links.tsx";
 // TYPAGE
-import { typeString, openUser } from "#2_types/typages.tsx";
+import { openUser, loginUser } from "#2_types/typages.tsx";
 //
 //
 // FIRST CONNECT PLAYER
 //
 //
-export function user_player(formData: typeString): Promise<boolean>{
+export function user_player({
+  formData,
+  name, 
+  score
+}: loginUser): Promise<boolean>{
     return fetch(`${Route_Server[0].url}${Route_Server[1].url}`, {
          method: "POST",
          headers: {
@@ -27,6 +31,8 @@ export function user_player(formData: typeString): Promise<boolean>{
            } else if(res.token){
             setValid(formData.idValue)
             localStorage.setItem("token_chifoumi", res.token)
+            name(res.pseudo);
+            score(res.score);
              return true
            } else {
              console.log(res)

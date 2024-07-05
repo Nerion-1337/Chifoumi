@@ -3,20 +3,22 @@
 // API
 import { user_player, user_open } from "#4_api/fetch_user.tsx"
 import { gameplay } from "#4_api/fetch_game.tsx"
+import { rank_10 } from "#4_api/fetch_ranking.tsx"
 // BUILD
 import Header from "#5_components/build/header.tsx";
 import Typo from "#5_components/build/global/typography.tsx";
 import Input from "#5_components/build/global/input.tsx";
 import Button from "#5_components/build/global/button.tsx";
 import Img from "#5_components/build/global/img.tsx";
+import Ranking from "#5_components/modal/ranking.tsx";
 // COMPONENTS
 import { handleChange } from "#5_components/formData.tsx";
 // DATA
-import { Route_Page, Input_register, Img_choose } from "#3_data/links.tsx";
+import { Input_register, Img_choose } from "#3_data/links.tsx";
 // REACT
 import { useState, useEffect } from "react";
 // TYPE
-import { typeString } from "#2_types/typages.tsx";
+import { typeString, mixte } from "#2_types/typages.tsx";
 //
 //
 //
@@ -28,7 +30,7 @@ export default function Home() {
 // VARIABLE
 //
 //
-const token = localStorage.getItem("token_chifoumi");
+let token;
 const [validToken, setValidToken] = useState<boolean> (false);
 //
 const [formData, setFormData] = useState<typeString>({});
@@ -43,7 +45,8 @@ const [result_user, setResult_user] = useState<number>(0);
 const [result_server, setResult_server] = useState<number>(0);
 const [winOrLose, setWinOrLose] = useState<string>();
 //
-const [ranking, setRanking] = useState();
+const [ranking, setRanking] = useState<mixte[]>([]);
+const [activeRanking, setActiveRanking] = useState<boolean>(false);
 //
 //
 // REQUETTE
@@ -60,6 +63,10 @@ useEffect(()=>{
 // FUNCTION
 //
 //
+useEffect(()=>{
+  token = localStorage.getItem("token_chifoumi");
+}, [])
+//
 // SAUVEGARDE DATA USER
 const addDataSimply = (fieldName: string, newValue: string, idValue: string,) => {
   handleChange({
@@ -71,7 +78,11 @@ const addDataSimply = (fieldName: string, newValue: string, idValue: string,) =>
 //
 // SEND USER BACK-END
 const handleSubmit = () => {
-  user_player(formData)
+  user_player({
+    formData: formData,
+    name: setNameUser,
+    score: setScoring
+  })
   .then((isConfirmer:  boolean) =>{
     setValidToken(isConfirmer)
   })
@@ -79,19 +90,20 @@ const handleSubmit = () => {
 //
 // ACTIVE MODAL CLASSEMENT
 const rankingSubmit = () => {
-  console.log("test")
+  rank_10({fonction: setRanking})
+  setActiveRanking(true)
 }
 //
-//
+// MODIFIE TEXT SI HOVER IMG
 const handleHover = (label: string) => {
   setNameChifoumi(label);
 };
-//
+// REINITIALISE APRES HOVER
 const handleMouseLeave = () => {
   setNameChifoumi("");
 };
 //
-//
+// ACTIONS REALISE APRES SELECTION MAIN
 const chooseSubmit = (data: string) =>{
   gameplay({
     option_user: data,
@@ -111,6 +123,7 @@ const chooseSubmit = (data: string) =>{
 // BUILDER
 //
 //
+// BOUCLE CHOIX GAME
 const chifoumi_choose = Img_choose.map((item, index) =>(
   <Img
   sizeBloc={item.sizeBloc}
@@ -206,9 +219,10 @@ const choose = (
   <article className="game_choose">
       <Typo
     balise="h1"
-    size="7"
+    size="8"
     color="cb"
     transform="maj"
+    familly="f3"
     children={nameChifoumi ? nameChifoumi : "choisis ta main"}
     />
   <div className="img_choose">
@@ -221,7 +235,8 @@ const resultat = (
   <article className="result_game">
     <Typo
     balise="h1"
-    size="7"
+    size="8"
+    familly="f3"
     color="cb"
     transform="maj"
     children={nameChifoumi ? nameChifoumi : "resultat"}
@@ -308,6 +323,11 @@ const content = (
   data={validToken}
   fonction={setValidToken}
   gamefunction={setGame}
+  />
+  <Ranking 
+  active={activeRanking}
+  fonction={setActiveRanking}
+  data={ranking}
   />
   <main className="home">
     {!validToken && registerUser}

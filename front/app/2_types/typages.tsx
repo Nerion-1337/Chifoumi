@@ -125,11 +125,6 @@ export interface aproposProps{
 }
 //
 //
-export interface calcule{
-[key: string]: number;
-}
-//
-//
 export interface input extends Partial<variant & size & keys>{
   variable: string;
   type: string;
@@ -164,6 +159,16 @@ export interface modal_links {
 export interface typeString{
   [key: string]: string;
 }
+//
+//
+export interface calcule{
+  [key: string]: number;
+  }
+//
+//
+export interface mixte{
+  [key: string]: number | string;
+}  
 //
 //
 // BUILD
@@ -324,6 +329,13 @@ export interface header {
 }
 //
 //
+export interface modal_ranking{
+  active: boolean;
+  fonction: Function;
+  data: mixte[];
+}
+//
+//
 // ERROR PAGE
 //
 //
@@ -342,6 +354,13 @@ export interface err_type {
 // API
 //
 //
+export interface loginUser{
+  formData:typeString;
+  name: Function;
+  score: Function;
+}
+//
+//
 export interface openUser{
   name: Function;
   score: Function;
@@ -354,6 +373,11 @@ export interface gameplay{
   resultmatch:Function;
   resultscore:Function;
 
+}
+//
+//
+export interface ranking{
+  fonction: Function;
 }
 //
 //

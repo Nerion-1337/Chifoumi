@@ -52,6 +52,26 @@
 }
 //
 //
+//
+.type-btn2{
+    position: relative;
+    background: transparent;
+    color: var(--cw, $cw);
+    border-radius: 50%;
+    @extend %center;
+    cursor: pointer;
+    transition: .5s;
+    z-index: 10;
+    &:hover{
+        color: var(--c2, $c2);
+        scale: 1.2;
+    }
+    &.active{
+        color: var(--c2, $c2);
+    }
+}
+//
+//
 // SIZE
 //
 //

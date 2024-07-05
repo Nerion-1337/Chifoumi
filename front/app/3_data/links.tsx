@@ -1,6 +1,7 @@
 // ICONS
-import { HiMiniUser } from "react-icons/hi2";
 import { GiDualityMask } from "react-icons/gi";
+import { GrClose } from "react-icons/gr";
+import { HiMiniUser } from "react-icons/hi2";
 import { TbArrowBigLeftFilled } from "react-icons/tb"
 // TYPAGE
 import { linksType, route, List_Icon, typeString, input, img} from "#2_types/typages.tsx";
@@ -53,6 +54,12 @@ export const Typelinks: Record<string, linksType> = {
       url: "/game/gameplay",
       type: "intern",
     },
+    {
+      index: 4,
+      label: "game",
+      url: "/rank/top10",
+      type: "intern",
+    },
   ];
 //
 //
@@ -85,6 +92,11 @@ export const List_icon: List_Icon = {
       key: 1,
       type: "arrow back",
       icon: {icon: TbArrowBigLeftFilled },
+    },
+    {
+      key: 2,
+      type: "étoile",
+      icon: {icon: GrClose},
     },
   ],
 }
