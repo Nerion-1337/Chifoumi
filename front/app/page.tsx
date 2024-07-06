@@ -141,7 +141,7 @@ const chifoumi_choose = Img_choose.map((item, index) =>(
   />
 ))
 //
-//
+// BLOC D'IDENTIFICATION AVANT JEU
 const registerUser = (
   <div className="register_user">
     <Typo
@@ -174,7 +174,7 @@ const registerUser = (
 </form>
   </div>
 )
-//
+// BLOC AFFICHANT SCORE / PSEUDO / BUTTON CLASSEMENT
 const score = (
   <article className="header_score">
     <div className="pseudo_rank">
@@ -214,7 +214,7 @@ const score = (
 
   </article>
 )
-//
+// BLOC PERMETTANT CHOISIR MAIN
 const choose = (
   <article className="game_choose">
       <Typo
@@ -230,7 +230,7 @@ const choose = (
   </div>
   </article>
 )
-//
+// BLOC AFFICHANT LE RESULTAT CHOIX USER / SERVER
 const resultat = (
   <article className="result_game">
     <Typo
@@ -309,7 +309,7 @@ const resultat = (
   />
   </article>
 )
-//
+// RASSEMBLE BLOC SCORE / CHOOSE / RESULTAT
 const chifoumi = (
   <section className="body_game">
   {score}
@@ -317,7 +317,7 @@ const chifoumi = (
   {game && resultat}
   </section>
 )
-//
+// RASSEMBLE TOUT
 const content = (
   <>
   <Header

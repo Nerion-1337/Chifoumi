@@ -14,6 +14,9 @@ export function user_player({
   name, 
   score
 }: loginUser): Promise<boolean>{
+//
+//
+//  
     return fetch(`${Route_Server[0].url}${Route_Server[1].url}`, {
          method: "POST",
          headers: {
@@ -23,22 +26,29 @@ export function user_player({
            [Links_Server[0].pseudo]: formData.pseudo,
          }),
        })
+//
+//       
          .then((res) => res.json())
-         .then((res) => {          
+         .then((res) => { 
+//                   
            if (res.error_identifiant) {
              setErreur(formData.idValue ? formData.idValue : "identifiant", res.error_identifiant)
              return false
+//             
            } else if(res.token){
             setValid(formData.idValue)
             localStorage.setItem("token_chifoumi", res.token)
             name(res.pseudo);
             score(res.score);
              return true
+//             
            } else {
              console.log(res)
              return false
            }
          })
+//
+//         
          .catch((err) => {
            console.log(err);
            return false
@@ -53,6 +63,9 @@ export function user_open({
   name, 
   score
 }: openUser): Promise<boolean>{
+//
+//
+//  
   return fetch(`${Route_Server[0].url}${Route_Server[2].url}`, {
        method: "GET",
        headers: {
@@ -60,18 +73,22 @@ export function user_open({
          authorization: `${localStorage.getItem("token_chifoumi")}`,
        },
      })
+//
+//     
        .then((res) => res.json())
-       .then((res) => {          
+       .then((res) => {      
+//            
          if (res.error_token) {
            return false
+//           
          } else {
           name(res.pseudo);
           score(res.score);
            return true
-           
-
          }
        })
+//
+//       
        .catch((err) => {
          console.log(err);
          return false

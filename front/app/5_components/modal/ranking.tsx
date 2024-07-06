@@ -24,6 +24,7 @@ export default function Ranking({
 // FUNCTION
 //
 //
+// FERMER LA MODAL
 const back_rank = () =>{
   fonction(false)
 }
@@ -32,6 +33,7 @@ const back_rank = () =>{
 // BUILDER
 //
 //
+// BOUCLE POUR AFFICHER LES ELEMENTS DANS TABLEAU
 const tableau = data.map((item, index)=>(
   <tr key={index}>
     <th>
@@ -57,7 +59,7 @@ const tableau = data.map((item, index)=>(
   </tr>
 ))
 //
-//
+// BLOC POUR CONTENANT LA MODAL CLASSEMENT
 const modal = (
     <section className="modal_rank">
    <Typo

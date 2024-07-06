@@ -1,5 +1,3 @@
-// REACT
-import { Dispatch, SetStateAction } from 'react';
 //
 import { ChangeHandle, } from "#2_types/typages.tsx";
 //

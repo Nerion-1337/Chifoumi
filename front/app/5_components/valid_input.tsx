@@ -4,6 +4,9 @@ import { createRoot } from 'react-dom/client';
 //
 //
 //
+//
+//
+// AFFICHE ERREUR DANS INPUT
 export function setErreur(input: string, message: React.ReactNode) {
   const formInput = document.querySelector(`.${input}`);
   if (formInput) {
@@ -16,7 +19,7 @@ export function setErreur(input: string, message: React.ReactNode) {
   }
 }
  //
- //
+ // SUPPRIME ERREUR DANS INPUT
  export function setValid(input: string) {
     const formInput = document.querySelector(`.${input}`);
     if(formInput){

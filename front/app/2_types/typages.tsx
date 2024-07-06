@@ -281,47 +281,6 @@ export interface input_type extends Partial<variant & size>{
 }
 //
 //
-export interface dropdown_type{
-  key?: number;
-  variant?: string;
-  text?: string;
-  icon?: iconProps;
-  list?: typeString[];
-  value?: string | number;
-  variable?: string;
- 
-  fonction?: Function;
-  show?: boolean;
-  search?: boolean;
-  number?:boolean;
-  filter?:boolean;
-  modale?:boolean;
-  placeholder?: string;
-}
-//
-//
-export interface modal {
-  active: boolean;
-  number: number;
-  text?:string;
-}
-//
-//
-export interface tag{
-  variant?: string;
-  value?: string;
-  type?: string;
-  number?: boolean;
-  quantite?: string;
- 
-  fonction?: Function;
-  close?: Function;
-  formData?: Function;
-  tagComponent?: Function;
-  img?: string;
-}
-//
-//
 export interface header {
   data: boolean; 
   fonction: Function;
@@ -343,12 +302,6 @@ export interface err_type {
     error: Error;
     reset: () => void;
 }
-//
-//
-// PAGE
-//
-//
-
 //
 //
 // API

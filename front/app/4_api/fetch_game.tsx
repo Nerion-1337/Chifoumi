@@ -13,6 +13,9 @@ export function gameplay({
   resultmatch,
   resultscore
 }: gameplay): Promise<boolean>{
+//
+//
+//  
     return fetch(`${Route_Server[0].url}${Route_Server[3].url}`, {
          method: "POST",
          headers: {
@@ -23,14 +26,19 @@ export function gameplay({
           option_user: option_user,
          }),
        })
+//
+//
          .then((res) => res.json())
-         .then((res) => {          
+         .then((res) => { 
+//                   
            if (res.error_token) {
             console.log(res.error_token)
              return false
+//             
            } else if(res.error_option_game){
             console.log(res.error_option_game)
              return false
+//             
            } else{
             option_ia(
                  res.option_ia === "paper" ? 0 :
@@ -42,6 +50,8 @@ export function gameplay({
              return true 
            } 
          })
+//
+//         
          .catch((err) => {
            console.log(err);
            return false
