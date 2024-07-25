@@ -13,13 +13,13 @@ import { linksType, route, List_Icon, typeString, input, img} from "#2_types/typ
 export const Typelinks: Record<string, linksType> = {
     INTERN: "intern",
     EXTERN: "extern",
-  };
-  //
-  //
-  // ROUTES
-  //
-  //
-  export const Route_Page: route[] = [
+};
+//
+//
+// ROUTES
+//
+//
+export const Route_Page: route[] = [
     {
       index: 0,
       label: "home",
@@ -27,9 +27,9 @@ export const Typelinks: Record<string, linksType> = {
       type: "intern",
       page: "<Home/>",
     },
-  ];
-  //
-  export const Route_Server: route[] = [
+];
+//
+export const Route_Server: route[] = [
     {
       index: 0,
       label: "all",
@@ -60,7 +60,7 @@ export const Typelinks: Record<string, linksType> = {
       url: "/rank/top10",
       type: "intern",
     },
-  ];
+];
 //
 //
 // LINKS SERVEURS
