@@ -23,7 +23,7 @@ Jeu:  Pierre - Feuille - Ciseaux
 
 *Attention* dans le fichier ```.env``` les valeurs sont mise par défaut est peuvent nécessiter d'être changé:
 - **PORT** = Détermine le port pour les requête back-end. Si vous souhaitez le modifier, il faudra aussi modifier dans le dossier:
-front => app => 3_data => links.tsx => Route_Server (ligne: 36 // valeur url)
+```front => app => 3_data => links.tsx => Route_Server (ligne: 36 // valeur url)```
 - **URL_CLIENT** = Et utilisé pour sécuriser les adresses pouvant envoyer des requêtes au back-end. Next par défaut attribue le port 3000, mais si vous utilisez un autre port modifier ce paramètre.
 - **DATABASE** = Le nom attribuer à la base de données.
 - **USERDATABASE** = L'identifiant pour vous connecter à votre base de données SQL. Renseigner celui que vous avez défini lors de l'installation de MySQL/PostgreSQL.
