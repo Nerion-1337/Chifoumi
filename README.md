@@ -45,7 +45,9 @@ Jeu:  Pierre - Feuille - Ciseaux
 
 *6-* Démarrer le front-end avec la commande suivante dans le même terminal que précédemment:
 - ```yarn dev```
- 
+
+**WAIT** La compilation est voir afficher ```GET / 200``` dans le terminal.
+
 
 # Maquette
 
