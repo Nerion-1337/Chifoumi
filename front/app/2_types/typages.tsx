@@ -334,6 +334,12 @@ export interface ranking{
 }
 //
 //
+export interface tokenValid{
+  name: Function;
+  score: Function;
+}
+//
+//
 // COMPONENT
 //
 //
